@@ -2,6 +2,9 @@ const fs = require("fs");
 const http = require("http");
 const url = require("url");
 
+
+
+const port = process.env.port || 3000
 const data = fs.readFileSync(__dirname + "/dev-data/data.json", "utf-8");
 const overviewtemp = fs.readFileSync(
   __dirname + "/templates/template-overview.html",
@@ -59,6 +62,6 @@ const server = http.createServer((req, res) => {
   }
 });
 
-server.listen(process.env.port || 3000, () => {
+server.listen(port, () => {
   console.log("Server on port no 3000");
 });
